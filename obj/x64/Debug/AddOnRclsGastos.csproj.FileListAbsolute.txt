@@ -1,0 +1,13 @@
+C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.Properties.Resources.resources
+C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.GenerateResource.cache
+C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.CoreCompileInputs.cache
+C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\bin\x64\Debug\AddOnRclsGastos.exe.config
+C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\bin\x64\Debug\AddOnRclsGastos.exe
+C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\bin\x64\Debug\AddOnRclsGastos.pdb
+C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\bin\x64\Debug\SAPBusinessOneSDK.dll
+C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.CopyComplete
+C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.exe
+C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.pdb
+C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\bin\x64\Debug\Views\frmAsistenteGastos.srf
+C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\bin\x64\Debug\Views\frmHistoricoAsientos.srf
+C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.AssemblyReference.cache
