@@ -117,48 +117,84 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ActualizaAsiento" xml:space="preserve">
+    <value>UPDATE JDT1
+SET "LineMemo" = '{0}-' || "LineMemo"
+WHERE "TransId" = {1} AND "Line_ID" IN ({2})</value>
+  </data>
+  <data name="ActualizaAsientoGenerado" xml:space="preserve">
+    <value>UPDATE JDT1
+SET "LineMemo" = '{0}-' || "LineMemo"
+WHERE "TransId" = {0}</value>
+  </data>
   <data name="ListarAsientos" xml:space="preserve">
     <value>SELECT 
 	'N' "Select",
 	T0."TransId",
 	T1."Line_ID",
 	T1."Account",
+	T2."FormatCode",
 	T2."AcctName",	
+	T1."RefDate",
 	T1."ProfitCode",
-	(SELECT "PrcName" FROM OPRC T3 WHERE T3 ON T1."ProfitCode" = T3."PrcCode") "ProfitCodeName",
-	T1."OcrCode2"
-	(SELECT "PrcName" FROM OPRC T3 WHERE T3 ON T1."OcrCode2" = T3."PrcCode") "OcrCode2Name",
-	T1."OcrCode3"
-	(SELECT "PrcName" FROM OPRC T3 WHERE T3 ON T1."OcrCode3" = T3."PrcCode") "OcrCode3Name",
-	T1."OcrCode4"
-	(SELECT "PrcName" FROM OPRC T3 WHERE T3 ON T1."OcrCode4" = T3."PrcCode") "OcrCode4Name",
-	T1."OcrCode5"
-	(SELECT "PrcName" FROM OPRC T3 WHERE T3 ON T1."OcrCode5" = T3."PrcCode") "OcrCode5Name",
-	T3."PrcName",
+	(SELECT "PrcName" FROM OPRC T3 WHERE T1."ProfitCode" = T3."PrcCode") "ProfitCodeName",
+	T1."OcrCode2",
+	(SELECT "PrcName" FROM OPRC T3 WHERE T1."OcrCode2" = T3."PrcCode") "OcrCode2Name",
+	T1."OcrCode3",
+	(SELECT "PrcName" FROM OPRC T3 WHERE T1."OcrCode3" = T3."PrcCode") "OcrCode3Name",
+	T1."OcrCode4",
+	(SELECT "PrcName" FROM OPRC T3 WHERE T1."OcrCode4" = T3."PrcCode") "OcrCode4Name",
+	T1."OcrCode5",
+	(SELECT "PrcName" FROM OPRC T3 WHERE T1."OcrCode5" = T3."PrcCode") "OcrCode5Name",
+	T1."FCCurrency",
 	T1."Debit" - T1."Credit" "Total ML",
 	T1."FCDebit" - T1."FCCredit" "Total ME",
 	T1."SYSDeb" - T1."SYSCred" "Total MS",
 	T1."Project",
 	T1."Ref1",
 	T1."Ref2",
-	T1."Ref3Line"
+	T1."Ref3Line"	
 FROM OJDT T0
 INNER JOIN JDT1 T1 ON T0."TransId" = T1."TransId"
 INNER JOIN OACT T2 ON T1."Account" = T2."AcctCode"
---INNER JOIN OPRC T3 ON T1."{0}" = T3."PrcCode"
-WHERE T0."RefDate" BETWEEN '{1}' AND '{2}'
+WHERE IFNULL(T0."StornoToTr", 0) = 0
+AND T0."TransId" NOT IN (SELECT DISTINCT(A."StornoToTr") FROM OJDT A WHERE IFNULL(A."StornoToTr", 0) &lt;&gt; 0 AND A."RefDate" BETWEEN '{1}' AND '{2}')
+AND T0."RefDate" BETWEEN '{1}' AND '{2}'
 AND T1."Account" IN ({3})
 AND T1."{0}" IN ({4})
+AND IFNULL(T1."FCCurrency", '') IN ({5})
 ORDER BY T1."Account", T1."{0}", T0."TransId"</value>
   </data>
   <data name="ListarCCGasto" xml:space="preserve">
     <value>SELECT 'N' "Select", "PrcCode", "PrcName" FROM OPRC WHERE "DimCode" = {0}  AND "U_EXX_ADRG_TIPOCC" = '1' ORDER BY "PrcCode"</value>
   </data>
-  <data name="ListarCCProductivo" xml:space="preserve">
-    <value>SELECT "PrcCode", "PrcName", 0 "Peso" FROM OPRC WHERE "DimCode" = {0} AND "U_EXX_ADRG_TIPOCC" = '2' ORDER BY "PrcCode"</value>
+  <data name="ListarCCProductivo_Opc1" xml:space="preserve">
+    <value>SELECT 
+	T1."U_EXA_CECO" "PrcCode",
+	T2."PrcName",
+	T1."U_EXA_CANTHH" "Peso"
+FROM "@EXA_CMAC" T0
+INNER JOIN "@EXA_CMAD" T1 ON T0."Code" = T1."Code"
+INNER JOIN "OPRC" T2 ON T1."U_EXA_CECO" = T2."PrcCode"
+WHERE T2."DimCode" = {0} AND T0."Code" = '{1}'
+ORDER BY "PrcCode"</value>
+  </data>
+  <data name="ListarCCProductivo_Opc2" xml:space="preserve">
+    <value>SELECT "PrcCode", "PrcName", 0.0 "Peso" FROM OPRC WHERE "DimCode" = {0} AND "U_EXX_ADRG_TIPOCC" = '2' ORDER BY "PrcCode"</value>
   </data>
   <data name="ListarCuentaGasto" xml:space="preserve">
-    <value>SELECT 'N' "Select", "AcctCode", "AcctName" FROM OACT WHERE "Levels" = 7 AND "U_EXX_ADRG_CTAGASTO" = 'Y' ORDER BY "AcctCode"</value>
+    <value>SELECT 'N' "Select", "FormatCode", "AcctCode", "AcctName" FROM OACT 
+WHERE "Levels" = {0} AND "U_EXX_ADRG_CTAGASTO" = 'Y' {1}
+ORDER BY "FormatCode"</value>
+  </data>
+  <data name="ListarDimensiones" xml:space="preserve">
+    <value>SELECT "DimCode", "DimDesc" FROM ODIM WHERE "DimActive" = 'Y' ORDER BY "DimCode"</value>
+  </data>
+  <data name="ListarDitribucionProyectos" xml:space="preserve">
+    <value>SELECT T0."Code", T1."U_EXX_ADRG_PRJD", T1."U_EXX_ADRG_PESO"
+FROM "@EXX_ADRG_OPRJ" T0
+INNER JOIN "@EXX_ADRG_PRJ1" T1 ON T0."Code" = T1."Code"
+WHERE IFNULL(T1."U_EXX_ADRG_PRJD", '') &lt;&gt; '' AND T1."U_EXX_ADRG_PESO" &gt; 0 AND T0."Code" IN ({0})</value>
   </data>
   <data name="ListarHistorico" xml:space="preserve">
     <value>SELECT 
@@ -168,10 +204,25 @@ ORDER BY T1."Account", T1."{0}", T0."TransId"</value>
 	"U_EXX_ADRG_EST" "Col_3",
 	"U_EXX_ADRG_FECHAC" "Col_4",
 	"U_EXX_ADRG_GLOSA" "Col_5",
-	"U_EXX_ADRG_FECHAA" "Col_6"
+	"U_EXX_ADRG_FECHAA" "Col_6",
 	"U_EXX_ADRG_TRANSIDA" "Col_7",
 	"Code"
 FROM "@EXX_ADRG_HIST"
 WHERE "U_EXX_ADRG_EST" IN ({0})</value>
+  </data>
+  <data name="ListarMonedas" xml:space="preserve">
+    <value>SELECT 'N' "Select", "CurrCode", "CurrName" FROM OCRN ORDER BY "CurrCode" DESC</value>
+  </data>
+  <data name="ObtenerConfiguracion" xml:space="preserve">
+    <value>SELECT "U_EXX_CONF_VALOR" FROM "@EXX_ADRG_CONF" WHERE "Code" = '001'</value>
+  </data>
+  <data name="ObtenerLevel" xml:space="preserve">
+    <value>SELECT MAX("Levels") FROM OACT</value>
+  </data>
+  <data name="ObtenerMonedaLocal" xml:space="preserve">
+    <value>SELECT "MainCurncy" FROM OADM</value>
+  </data>
+  <data name="ValidaMonedaSistema" xml:space="preserve">
+    <value>SELECT TOP 1 "SysCNoEdit" FROM OADM</value>
   </data>
 </root>

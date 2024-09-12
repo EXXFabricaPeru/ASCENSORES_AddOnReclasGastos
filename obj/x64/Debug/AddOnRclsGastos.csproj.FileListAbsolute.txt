@@ -11,3 +11,49 @@ C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGasto
 C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\bin\x64\Debug\Views\frmAsistenteGastos.srf
 C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\bin\x64\Debug\Views\frmHistoricoAsientos.srf
 C:\EXXIS\AddOnReclasificacionGastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.AssemblyReference.cache
+C:\EXXIS_DEV\AddOnRclsGastos\bin\x64\Debug\Views\frmAsistenteGastos.srf
+C:\EXXIS_DEV\AddOnRclsGastos\bin\x64\Debug\Views\frmHistoricoAsientos.srf
+C:\EXXIS_DEV\AddOnRclsGastos\bin\x64\Debug\AddOnRclsGastos.exe.config
+C:\EXXIS_DEV\AddOnRclsGastos\bin\x64\Debug\AddOnRclsGastos.exe
+C:\EXXIS_DEV\AddOnRclsGastos\bin\x64\Debug\AddOnRclsGastos.pdb
+C:\EXXIS_DEV\AddOnRclsGastos\bin\x64\Debug\SAPBusinessOneSDK.dll
+C:\EXXIS_DEV\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.AssemblyReference.cache
+C:\EXXIS_DEV\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.Properties.Resources.resources
+C:\EXXIS_DEV\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.GenerateResource.cache
+C:\EXXIS_DEV\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.CoreCompileInputs.cache
+C:\EXXIS_DEV\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.CopyComplete
+C:\EXXIS_DEV\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.exe
+C:\EXXIS_DEV\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.pdb
+C:\Users\consultor4\Desktop\AddOnRclsGastos\bin\x64\Debug\Views\frmAsistenteGastos.srf
+C:\Users\consultor4\Desktop\AddOnRclsGastos\bin\x64\Debug\Views\frmHistoricoAsientos.srf
+C:\Users\consultor4\Desktop\AddOnRclsGastos\bin\x64\Debug\AddOnRclsGastos.exe.config
+C:\Users\consultor4\Desktop\AddOnRclsGastos\bin\x64\Debug\AddOnRclsGastos.exe
+C:\Users\consultor4\Desktop\AddOnRclsGastos\bin\x64\Debug\AddOnRclsGastos.pdb
+C:\Users\consultor4\Desktop\AddOnRclsGastos\bin\x64\Debug\SAPBusinessOneSDK.dll
+C:\Users\consultor4\Desktop\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.Properties.Resources.resources
+C:\Users\consultor4\Desktop\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.GenerateResource.cache
+C:\Users\consultor4\Desktop\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.CoreCompileInputs.cache
+C:\Users\consultor4\Desktop\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.CopyComplete
+C:\Users\consultor4\Desktop\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.exe
+C:\Users\consultor4\Desktop\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.pdb
+C:\Users\consultor4\Desktop\AddOnRclsGastos\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Users\consultor4\Desktop\AddOnRclsGastos\bin\x64\Debug\RestSharp.dll
+C:\Users\consultor4\Desktop\AddOnRclsGastos\bin\x64\Debug\Newtonsoft.Json.xml
+C:\Users\consultor4\Desktop\AddOnRclsGastos\bin\x64\Debug\RestSharp.xml
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\bin\x64\Debug\Views\frmAsistenteGastos.srf
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\bin\x64\Debug\Views\frmHistoricoAsientos.srf
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\bin\x64\Debug\AddOnRclsGastos.exe.config
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\bin\x64\Debug\AddOnRclsGastos.exe
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\bin\x64\Debug\AddOnRclsGastos.pdb
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\bin\x64\Debug\Newtonsoft.Json.dll
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\bin\x64\Debug\RestSharp.dll
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\bin\x64\Debug\Newtonsoft.Json.xml
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\bin\x64\Debug\RestSharp.xml
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.AssemblyReference.cache
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.SuggestedBindingRedirects.cache
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.Properties.Resources.resources
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.GenerateResource.cache
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.CoreCompileInputs.cache
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.csproj.CopyComplete
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.exe
+D:\Trabajo\Exxis\ASCENSORES\AddOn Reclasificacion Gastos\AddOnRclsGastos\obj\x64\Debug\AddOnRclsGastos.pdb

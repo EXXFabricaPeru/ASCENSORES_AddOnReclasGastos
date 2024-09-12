@@ -61,20 +61,44 @@ namespace AddOnRclsGastos.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a UPDATE JDT1
+        ///SET &quot;LineMemo&quot; = &apos;{0}-&apos; || &quot;LineMemo&quot;
+        ///WHERE &quot;TransId&quot; = {1} AND &quot;Line_ID&quot; IN ({2}).
+        /// </summary>
+        internal static string ActualizaAsiento {
+            get {
+                return ResourceManager.GetString("ActualizaAsiento", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a UPDATE JDT1
+        ///SET &quot;LineMemo&quot; = &apos;{0}-&apos; || &quot;LineMemo&quot;
+        ///WHERE &quot;TransId&quot; = {0}.
+        /// </summary>
+        internal static string ActualizaAsientoGenerado {
+            get {
+                return ResourceManager.GetString("ActualizaAsientoGenerado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a SELECT 
         ///	&apos;N&apos; &quot;Select&quot;,
         ///	T0.&quot;TransId&quot;,
         ///	T1.&quot;Line_ID&quot;,
         ///	T1.&quot;Account&quot;,
+        ///	T2.&quot;FormatCode&quot;,
         ///	T2.&quot;AcctName&quot;,	
+        ///	T1.&quot;RefDate&quot;,
         ///	T1.&quot;ProfitCode&quot;,
-        ///	(SELECT &quot;PrcName&quot; FROM OPRC T3 WHERE T3 ON T1.&quot;ProfitCode&quot; = T3.&quot;PrcCode&quot;) &quot;ProfitCodeName&quot;,
-        ///	T1.&quot;OcrCode2&quot;
-        ///	(SELECT &quot;PrcName&quot; FROM OPRC T3 WHERE T3 ON T1.&quot;OcrCode2&quot; = T3.&quot;PrcCode&quot;) &quot;OcrCode2Name&quot;,
-        ///	T1.&quot;OcrCode3&quot;
-        ///	(SELECT &quot;PrcName&quot; FROM OPRC T3 WHERE T3 ON T1.&quot;OcrCode3&quot; = T3.&quot;PrcCode&quot;) &quot;OcrCode3Name&quot;,
-        ///	T1.&quot;OcrCode4&quot;
-        ///	(SELECT &quot;PrcName&quot; FROM OPRC T3 WHERE T3 ON T1.&quot;OcrCode4&quot; = T3.&quot;PrcCode&quot;) &quot;Oc [resto de la cadena truncado]&quot;;.
+        ///	(SELECT &quot;PrcName&quot; FROM OPRC T3 WHERE T1.&quot;ProfitCode&quot; = T3.&quot;PrcCode&quot;) &quot;ProfitCodeName&quot;,
+        ///	T1.&quot;OcrCode2&quot;,
+        ///	(SELECT &quot;PrcName&quot; FROM OPRC T3 WHERE T1.&quot;OcrCode2&quot; = T3.&quot;PrcCode&quot;) &quot;OcrCode2Name&quot;,
+        ///	T1.&quot;OcrCode3&quot;,
+        ///	(SELECT &quot;PrcName&quot; FROM OPRC T3 WHERE T1.&quot;OcrCode3&quot; = T3.&quot;PrcCode&quot;) &quot;OcrCode3Name&quot;,
+        ///	T1.&quot;OcrCode4&quot;,
+        ///	(SELECT &quot;PrcName&quot; FROM OPRC T3 WHERE T1.&quot;OcrCode4&quot; = T3. [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string ListarAsientos {
             get {
@@ -92,20 +116,60 @@ namespace AddOnRclsGastos.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT &quot;PrcCode&quot;, &quot;PrcName&quot;, 0 &quot;Peso&quot; FROM OPRC WHERE &quot;DimCode&quot; = {0} AND &quot;U_EXX_ADRG_TIPOCC&quot; = &apos;2&apos; ORDER BY &quot;PrcCode&quot;.
+        ///   Busca una cadena traducida similar a SELECT 
+        ///	T1.&quot;U_EXA_CECO&quot; &quot;PrcCode&quot;,
+        ///	T2.&quot;PrcName&quot;,
+        ///	T1.&quot;U_EXA_CANTHH&quot; &quot;Peso&quot;
+        ///FROM &quot;@EXA_CMAC&quot; T0
+        ///INNER JOIN &quot;@EXA_CMAD&quot; T1 ON T0.&quot;Code&quot; = T1.&quot;Code&quot;
+        ///INNER JOIN &quot;OPRC&quot; T2 ON T1.&quot;U_EXA_CECO&quot; = T2.&quot;PrcCode&quot;
+        ///WHERE T2.&quot;DimCode&quot; = {0} AND T0.&quot;Code&quot; = &apos;{1}&apos;
+        ///ORDER BY &quot;PrcCode&quot;.
         /// </summary>
-        internal static string ListarCCProductivo {
+        internal static string ListarCCProductivo_Opc1 {
             get {
-                return ResourceManager.GetString("ListarCCProductivo", resourceCulture);
+                return ResourceManager.GetString("ListarCCProductivo_Opc1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT &apos;N&apos; &quot;Select&quot;, &quot;AcctCode&quot;, &quot;AcctName&quot; FROM OACT WHERE &quot;Levels&quot; = 7 AND &quot;U_EXX_ADRG_CTAGASTO&quot; = &apos;Y&apos; ORDER BY &quot;AcctCode&quot;.
+        ///   Busca una cadena traducida similar a SELECT &quot;PrcCode&quot;, &quot;PrcName&quot;, 0.0 &quot;Peso&quot; FROM OPRC WHERE &quot;DimCode&quot; = {0} AND &quot;U_EXX_ADRG_TIPOCC&quot; = &apos;2&apos; ORDER BY &quot;PrcCode&quot;.
+        /// </summary>
+        internal static string ListarCCProductivo_Opc2 {
+            get {
+                return ResourceManager.GetString("ListarCCProductivo_Opc2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT &apos;N&apos; &quot;Select&quot;, &quot;FormatCode&quot;, &quot;AcctCode&quot;, &quot;AcctName&quot; FROM OACT 
+        ///WHERE &quot;Levels&quot; = {0} AND &quot;U_EXX_ADRG_CTAGASTO&quot; = &apos;Y&apos; {1}
+        ///ORDER BY &quot;FormatCode&quot;.
         /// </summary>
         internal static string ListarCuentaGasto {
             get {
                 return ResourceManager.GetString("ListarCuentaGasto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT &quot;DimCode&quot;, &quot;DimDesc&quot; FROM ODIM WHERE &quot;DimActive&quot; = &apos;Y&apos; ORDER BY &quot;DimCode&quot;.
+        /// </summary>
+        internal static string ListarDimensiones {
+            get {
+                return ResourceManager.GetString("ListarDimensiones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT T0.&quot;Code&quot;, T1.&quot;U_EXX_ADRG_PRJD&quot;, T1.&quot;U_EXX_ADRG_PESO&quot;
+        ///FROM &quot;@EXX_ADRG_OPRJ&quot; T0
+        ///INNER JOIN &quot;@EXX_ADRG_PRJ1&quot; T1 ON T0.&quot;Code&quot; = T1.&quot;Code&quot;
+        ///WHERE IFNULL(T1.&quot;U_EXX_ADRG_PRJD&quot;, &apos;&apos;) &lt;&gt; &apos;&apos; AND T1.&quot;U_EXX_ADRG_PESO&quot; &gt; 0 AND T0.&quot;Code&quot; IN ({0}).
+        /// </summary>
+        internal static string ListarDitribucionProyectos {
+            get {
+                return ResourceManager.GetString("ListarDitribucionProyectos", resourceCulture);
             }
         }
         
@@ -117,7 +181,7 @@ namespace AddOnRclsGastos.Properties {
         ///	&quot;U_EXX_ADRG_EST&quot; &quot;Col_3&quot;,
         ///	&quot;U_EXX_ADRG_FECHAC&quot; &quot;Col_4&quot;,
         ///	&quot;U_EXX_ADRG_GLOSA&quot; &quot;Col_5&quot;,
-        ///	&quot;U_EXX_ADRG_FECHAA&quot; &quot;Col_6&quot;
+        ///	&quot;U_EXX_ADRG_FECHAA&quot; &quot;Col_6&quot;,
         ///	&quot;U_EXX_ADRG_TRANSIDA&quot; &quot;Col_7&quot;,
         ///	&quot;Code&quot;
         ///FROM &quot;@EXX_ADRG_HIST&quot;
@@ -126,6 +190,51 @@ namespace AddOnRclsGastos.Properties {
         internal static string ListarHistorico {
             get {
                 return ResourceManager.GetString("ListarHistorico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT &apos;N&apos; &quot;Select&quot;, &quot;CurrCode&quot;, &quot;CurrName&quot; FROM OCRN ORDER BY &quot;CurrCode&quot; DESC.
+        /// </summary>
+        internal static string ListarMonedas {
+            get {
+                return ResourceManager.GetString("ListarMonedas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT &quot;U_EXX_CONF_VALOR&quot; FROM &quot;@EXX_ADRG_CONF&quot; WHERE &quot;Code&quot; = &apos;001&apos;.
+        /// </summary>
+        internal static string ObtenerConfiguracion {
+            get {
+                return ResourceManager.GetString("ObtenerConfiguracion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT MAX(&quot;Levels&quot;) FROM OACT.
+        /// </summary>
+        internal static string ObtenerLevel {
+            get {
+                return ResourceManager.GetString("ObtenerLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT &quot;MainCurncy&quot; FROM OADM.
+        /// </summary>
+        internal static string ObtenerMonedaLocal {
+            get {
+                return ResourceManager.GetString("ObtenerMonedaLocal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT TOP 1 &quot;SysCNoEdit&quot; FROM OADM.
+        /// </summary>
+        internal static string ValidaMonedaSistema {
+            get {
+                return ResourceManager.GetString("ValidaMonedaSistema", resourceCulture);
             }
         }
     }

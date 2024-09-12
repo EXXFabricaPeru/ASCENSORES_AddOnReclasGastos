@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace AddOnRclsGastos.DBStructure
 {
@@ -23,22 +24,42 @@ namespace AddOnRclsGastos.DBStructure
             agregarValorValido("G", "Generado", ref EstadoValues);
             agregarValorValido("A", "Anulado", ref EstadoValues);
 
-            #region UDO_NOMINAS
-            //crearCampo("EXX_ANXN_NOMINA_CAB", "EXX_ANXN_FIERA", "FEC INI EERR ABONADO", SAPbobsCOM.BoFieldTypes.db_Date, SAPbobsCOM.BoFldSubTypes.st_None, 10, "", "", false, null);
+            List<List<String>> TipoHoraValues = new List<List<String>>();
+            agregarValorValido("01", "EXTRA_DOMINICAL", ref TipoHoraValues);
+            agregarValorValido("02", "EXTRA_DIARIO", ref TipoHoraValues);
+            agregarValorValido("03", "EXTRA_FERIADO", ref TipoHoraValues);
+
+            crearTabla("EXX_ADRG_CONF", "Configuración - Reclas Gasto", SAPbobsCOM.BoUTBTableType.bott_NoObject);
+            crearCampo("EXX_ADRG_CONF", "EXX_CONF_VALOR", "Valor", SAPbobsCOM.BoFieldTypes.db_Alpha, SAPbobsCOM.BoFldSubTypes.st_None, 254, "", "", false, null);
+
             crearCampo("OACT", "EXX_ADRG_CTAGASTO", "Cuenta de gasto", SAPbobsCOM.BoFieldTypes.db_Alpha, SAPbobsCOM.BoFldSubTypes.st_None, 1, "N", "", false, TrueFalseValues);
             crearCampo("OPRC", "EXX_ADRG_TIPOCC", "Tipo centro de costo", SAPbobsCOM.BoFieldTypes.db_Alpha, SAPbobsCOM.BoFldSubTypes.st_None, 1, "", "", false, TipoCCValues);
 
-
             crearTabla("EXX_ADRG_HIST", "Histórico-Asiento Reclas Gasto", SAPbobsCOM.BoUTBTableType.bott_NoObjectAutoIncrement);
-            crearCampo("EXX_ADRG_HIST", "EXX_ADRG_FECHAE", "Fecha Ejecución", SAPbobsCOM.BoFieldTypes.db_Date, SAPbobsCOM.BoFldSubTypes.st_None,10, "", "", false, null);
+            crearCampo("EXX_ADRG_HIST", "EXX_ADRG_FECHAE", "Fecha Ejecución", SAPbobsCOM.BoFieldTypes.db_Date, SAPbobsCOM.BoFldSubTypes.st_None, 10, "", "", false, null);
             crearCampo("EXX_ADRG_HIST", "EXX_ADRG_TRANSID", "N° Asiento", SAPbobsCOM.BoFieldTypes.db_Numeric, SAPbobsCOM.BoFldSubTypes.st_None, 10, "", "", false, null);
             crearCampo("EXX_ADRG_HIST", "EXX_ADRG_FECHAC", "Fecha Contabilización", SAPbobsCOM.BoFieldTypes.db_Date, SAPbobsCOM.BoFldSubTypes.st_None, 10, "", "", false, null);
             crearCampo("EXX_ADRG_HIST", "EXX_ADRG_GLOSA", "Glosa", SAPbobsCOM.BoFieldTypes.db_Alpha, SAPbobsCOM.BoFldSubTypes.st_None, 254, "", "", false, null);
             crearCampo("EXX_ADRG_HIST", "EXX_ADRG_EST", "Estado Asiento", SAPbobsCOM.BoFieldTypes.db_Alpha, SAPbobsCOM.BoFldSubTypes.st_None, 1, "G", "", false, EstadoValues);
             crearCampo("EXX_ADRG_HIST", "EXX_ADRG_FECHAA", "Fecha Anulación", SAPbobsCOM.BoFieldTypes.db_Date, SAPbobsCOM.BoFldSubTypes.st_None, 10, "", "", false, null);
             crearCampo("EXX_ADRG_HIST", "EXX_ADRG_TRANSIDA", "N° Asiento anulación", SAPbobsCOM.BoFieldTypes.db_Numeric, SAPbobsCOM.BoFldSubTypes.st_None, 10, "", "", false, null);
-            #endregion
 
+            crearTabla("EXA_CMAC", "EXA - Grupo Maquinas", SAPbobsCOM.BoUTBTableType.bott_MasterData);
+            crearCampo("EXA_CMAC", "EXA_PERIODO", "Periodo", SAPbobsCOM.BoFieldTypes.db_Alpha, SAPbobsCOM.BoFldSubTypes.st_None, 12, "", "", false, null); 
+            crearTabla("EXA_CMAD", "EXA - Detalle Grupo Maquinas", SAPbobsCOM.BoUTBTableType.bott_MasterDataLines);
+            crearCampo("EXA_CMAD", "EXA_CONTRATO", "Contrato", SAPbobsCOM.BoFieldTypes.db_Alpha, SAPbobsCOM.BoFldSubTypes.st_None, 20, "", "", false, null);
+            crearCampo("EXA_CMAD", "EXA_MAQUINA", "Maquina", SAPbobsCOM.BoFieldTypes.db_Alpha, SAPbobsCOM.BoFldSubTypes.st_None, 20, "", "", false, null);
+            crearCampo("EXA_CMAD", "EXA_TIPO_HORA", "Tipo Hora", SAPbobsCOM.BoFieldTypes.db_Alpha, SAPbobsCOM.BoFldSubTypes.st_None, 15, "", "", false, TipoHoraValues);
+            crearCampo("EXA_CMAD", "EXA_CANTHH", "Cantidad", SAPbobsCOM.BoFieldTypes.db_Float, SAPbobsCOM.BoFldSubTypes.st_Price, 50, "", "", false, null);
+            crearCampo("EXA_CMAD", "EXA_CECO", "Centro de Costo", SAPbobsCOM.BoFieldTypes.db_Alpha, SAPbobsCOM.BoFldSubTypes.st_None, 20, "", "", false, null);
+            crearCampo("EXA_CMAD", "EXA_CODOBRERO", "Codigo Obrero", SAPbobsCOM.BoFieldTypes.db_Alpha, SAPbobsCOM.BoFldSubTypes.st_None, 20, "", "", false, null);
+
+
+            crearTabla("EXX_ADRG_OPRJ", "EXX - Grupo Proyectos", SAPbobsCOM.BoUTBTableType.bott_MasterData);
+            crearTabla("EXX_ADRG_PRJ1", "EXX - Detalle Grupo Proyectos", SAPbobsCOM.BoUTBTableType.bott_MasterDataLines);
+            crearCampo("EXX_ADRG_PRJ1", "EXX_ADRG_PRJD", "Proyecto Destino", SAPbobsCOM.BoFieldTypes.db_Alpha, SAPbobsCOM.BoFldSubTypes.st_None, 50, "", "", false, null);
+            crearCampo("EXX_ADRG_PRJ1", "EXX_ADRG_PRDD", "Desc.Proyecto Destino", SAPbobsCOM.BoFieldTypes.db_Alpha, SAPbobsCOM.BoFldSubTypes.st_None, 254, "", "", false, null);
+            crearCampo("EXX_ADRG_PRJ1", "EXX_ADRG_PESO", "Peso", SAPbobsCOM.BoFieldTypes.db_Numeric, SAPbobsCOM.BoFldSubTypes.st_Price, 10, "", "", false, null);
         }
 
         private static void agregarValorValido(String Value, String Description, ref List<List<String>> ValidValues)
@@ -84,9 +105,8 @@ namespace AddOnRclsGastos.DBStructure
             }
         }
 
-        private static void crearCampo(string tabla, string campo, string descripcion, SAPbobsCOM.BoFieldTypes tipo,
-            SAPbobsCOM.BoFldSubTypes subtipo, int tamaño, string ValorPorDefecto, string sLinkedTable,
-            Boolean Mandatory, List<List<String>> ValidValues)//CHG
+        private static void crearCampo(string tabla, string campo, string descripcion, SAPbobsCOM.BoFieldTypes tipo, SAPbobsCOM.BoFldSubTypes subtipo, int tamaño,
+                                       string ValorPorDefecto, string sLinkedTable, Boolean Mandatory, List<List<String>> ValidValues, string LinkedType = null)
         {
             int existeCampo = 0;
 
@@ -118,7 +138,20 @@ namespace AddOnRclsGastos.DBStructure
                     }
 
                     if (sLinkedTable.ToString() != "")
-                        oCampo.LinkedTable = sLinkedTable;
+                    {
+                        switch (LinkedType)
+                        {
+                            case Globals.LinkedSystemObject:
+                                oCampo.LinkedSystemObject = (SAPbobsCOM.UDFLinkedSystemObjectTypesEnum)Convert.ToInt32(sLinkedTable);
+                                break;
+                            case Globals.LinkedUDO:
+                                oCampo.LinkedUDO = sLinkedTable;
+                                break;
+                            case Globals.LinkedTable:
+                                oCampo.LinkedTable = sLinkedTable;
+                                break;
+                        }
+                    }
 
                     if (ValidValues != null)
                     {

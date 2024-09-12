@@ -67,6 +67,7 @@ namespace AddOnRclsGastos.Functionality
             BubbleEvent = true;
             try
             {
+                oForm.Freeze(true);
                 Grid oGrid = (SAPbouiCOM.Grid)oForm.Items.Item("grid1").Specific;
                 SAPbouiCOM.DataTable oLista = (SAPbouiCOM.DataTable)oForm.DataSources.DataTables.Item("DT_1");
                 EditTextColumn etColumna;
@@ -90,6 +91,7 @@ namespace AddOnRclsGastos.Functionality
                 oGrid.Columns.Item("Col_2").Editable = false;
                 etColumna = ((EditTextColumn)(oGrid.Columns.Item("Col_2")));
                 etColumna.LinkedObjectType = "30";
+                oGrid.Columns.Item("Col_3").Type = BoGridColumnType.gct_ComboBox;
                 oGrid.Columns.Item("Col_3").TitleObject.Caption = "Estado";
                 oGrid.Columns.Item("Col_3").Editable = false;
                 cbColumna = ((ComboBoxColumn)(oGrid.Columns.Item("Col_3")));
@@ -102,35 +104,32 @@ namespace AddOnRclsGastos.Functionality
                 oGrid.Columns.Item("Col_5").TitleObject.Caption = "Glosa";
                 oGrid.Columns.Item("Col_5").Editable = false;
                 oGrid.Columns.Item("Col_6").TitleObject.Caption = "Fecha anulación";
-                oGrid.Columns.Item("Col_6").Editable = true;
+                oGrid.Columns.Item("Col_6").Editable = false;
                 oGrid.Columns.Item("Col_7").TitleObject.Caption = "N° Asiento anulado";
-                oGrid.Columns.Item("Col_7").Editable = true;
+                oGrid.Columns.Item("Col_7").Editable = false;
                 etColumna = ((EditTextColumn)(oGrid.Columns.Item("Col_7")));
                 etColumna.LinkedObjectType = "30";
                 oGrid.Columns.Item("Code").Editable = false;
                 oGrid.Columns.Item("Code").Visible = false;
 
-                if (Estado.Selected.Value == "A")
+                if (Estado.Selected.Value == "G")
                 {
-                    oGrid.Columns.Item("Col_0").Editable = true;
+                    oGrid.Columns.Item("Col_0").Editable = oGrid.Columns.Item("Col_0").Editable = true;
                     oGrid.Columns.Item("Col_0").Visible = true;
                     ((Button)oForm.Items.Item("btnAnular").Specific).Item.Visible = true;
+                    oGrid.Columns.Item("Col_6").Visible = false;
+                    oGrid.Columns.Item("Col_7").Visible = false;
                 }
                 else
                 {
                     oGrid.Columns.Item("Col_0").Editable = false;
                     oGrid.Columns.Item("Col_0").Visible = false;
                     ((Button)oForm.Items.Item("btnAnular").Specific).Item.Visible = false;
-
-                    if (Estado.Selected.Value == "G")
-                    {
-                        oGrid.Columns.Item("Col_6").TitleObject.Caption = "Fecha anulación";
-                        oGrid.Columns.Item("Col_6").Editable = false;
-                        oGrid.Columns.Item("Col_7").TitleObject.Caption = "N° Asiento anulado";
-                        oGrid.Columns.Item("Col_7").Editable = false;
-                    }
+                    oGrid.Columns.Item("Col_6").Visible = true;
+                    oGrid.Columns.Item("Col_7").Visible = true;
                 }
                 oGrid.AutoResizeColumns();
+                oForm.Freeze(false);
             }
             catch (Exception ex)
             {

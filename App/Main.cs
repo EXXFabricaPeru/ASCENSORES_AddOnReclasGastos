@@ -116,8 +116,11 @@ namespace AddOnRclsGastos.App
                                     case BoEventTypes.et_COMBO_SELECT:
                                         SRF_AsistenteGastos.ComboSelect(ref pVal, oForm, out BubbleEvent);
                                         break;
+                                    case BoEventTypes.et_CHOOSE_FROM_LIST:
+                                        SRF_AsistenteGastos.ChooseFromList(ref pVal, oForm, out BubbleEvent);
+                                        break;
                                     case BoEventTypes.et_LOST_FOCUS:
-                                        SRF_AsistenteGastos.LostFocus(ref pVal, oForm, out BubbleEvent);
+                                        //SRF_AsistenteGastos.LostFocus(ref pVal, oForm, out BubbleEvent);
                                         break;
                                 }
                                 break;
